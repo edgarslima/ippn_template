@@ -132,25 +132,27 @@ const Hero = () => {
   }, [slides.length]);
 
   return (
-    <section className="relative h-[90vh] min-h-[700px] w-full flex items-center overflow-hidden">
-      <AnimatePresence mode="wait">
-        <motion.div 
-          key={`bg-${currentSlide}`}
-          initial={{ opacity: 0, scale: 1.1 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 1.5 }}
-          className="absolute inset-0 z-0"
-        >
-          <img 
-            src={slides[currentSlide].image} 
-            alt="Hero Background"
-            className="w-full h-full object-cover"
-            referrerPolicy="no-referrer"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent"></div>
-        </motion.div>
-      </AnimatePresence>
+    <section className="relative h-[90vh] min-h-[700px] w-full flex items-center">
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <AnimatePresence mode="wait">
+          <motion.div 
+            key={`bg-${currentSlide}`}
+            initial={{ opacity: 0, scale: 1.1 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.5 }}
+            className="absolute inset-0"
+          >
+            <img 
+              src={slides[currentSlide].image} 
+              alt="Hero Background"
+              className="w-full h-full object-cover"
+              referrerPolicy="no-referrer"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent"></div>
+          </motion.div>
+        </AnimatePresence>
+      </div>
 
       <div className="relative z-10 max-w-screen-2xl w-full mx-auto px-8">
         <div className="max-w-4xl">
